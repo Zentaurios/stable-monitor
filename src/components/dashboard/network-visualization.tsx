@@ -220,7 +220,7 @@ export function NetworkVisualization() {
   const handleZoomIn = () => {
     const svg = d3.select(svgRef.current)
     const currentTransform = d3.zoomTransform(svg.node()!)
-    // @ts-ignore - D3 zoom transition types are incompatible but functionality works
+    // @ts-expect-error - D3 zoom transition types are incompatible but functionality works
     svg.transition().duration(300)
       .call(zoomBehavior.current.transform, currentTransform.scale(1.5))
   }
@@ -228,14 +228,14 @@ export function NetworkVisualization() {
   const handleZoomOut = () => {
     const svg = d3.select(svgRef.current)
     const currentTransform = d3.zoomTransform(svg.node()!)
-    // @ts-ignore - D3 zoom transition types are incompatible but functionality works
+    // @ts-expect-error - D3 zoom transition types are incompatible but functionality works
     svg.transition().duration(300)
       .call(zoomBehavior.current.transform, currentTransform.scale(0.67))
   }
 
   const handleReset = () => {
     const svg = d3.select(svgRef.current)
-    // @ts-ignore - D3 zoom transition types are incompatible but functionality works
+    // @ts-expect-error - D3 zoom transition types are incompatible but functionality works
     svg.transition().duration(300)
       .call(zoomBehavior.current.transform, d3.zoomIdentity)
     setSelectedNode(null)
